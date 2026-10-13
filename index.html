@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陈丹枫 (Zora) | 剪辑师个人作品集</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+        .fade-in {
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .editable-highlight {
+            outline: 2px dashed #3b82f6 !important;
+            outline-offset: 2px;
+            background-color: rgba(59, 130, 246, 0.05);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-neutral-900 selection:text-white">
+
+    <!-- 顶部导航栏 -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-neutral-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-full bg-neutral-900 text-white flex items-center justify-center font-bold tracking-wider text-sm transition-transform group-hover:scale-105">
+                    ZD
+                </div>
+                <div>
+                    <span class="font-semibold text-lg tracking-tight block" id="site-header-name">陈丹枫 / Zora Chen</span>
+                    <span class="text-xs text-neutral-500 tracking-widest uppercase" id="site-header-title">Editor & Colorist</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-neutral-600">
+                <a href="#portfolio" class="hover:text-neutral-900 transition-colors">作品集</a>
+                <a href="#work-experience" class="hover:text-neutral-900 transition-colors">工作经历</a>
+                <a href="#profile" class="hover:text-neutral-900 transition-colors">个人档案</a>
+                <a href="#education" class="hover:text-neutral-900 transition-colors">教育背景</a>
+                <a href="#contact" class="hover:text-neutral-900 transition-colors">联系方式</a>
+            </nav>
+
+            <div class="flex items-center space-x-3">
+                <button onclick="toggleEditMode()" id="editToggleBtn" class="flex items-center space-x-2 px-4 py-2 rounded-full border border-neutral-200 text-xs font-medium text-neutral-700 hover:bg-blue-50 hover:border-blue-500 transition-all shadow-sm">
+                    <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
+                    <span id="editToggleText">开启实时编辑修改</span>
+                </button>
+                <button onclick="toggleAdminMode()" id="adminToggleBtn" class="flex items-center space-x-2 px-4 py-2 rounded-full border border-neutral-200 text-xs font-medium text-neutral-700 hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-all shadow-sm">
+                    <i data-lucide="settings" class="w-3.5 h-3.5"></i>
+                    <span id="adminToggleText">管理后台</span>
+                </button>
+                <a href="#contact" class="hidden sm:inline-flex items-center px-5 py-2 rounded-full bg-neutral-900 text-white text-xs font-medium hover:bg-neutral-800 transition-all shadow-sm">
+                    预约合作
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero 区域 -->
+    <section class="pt-36 pb-20 md:pt-44 md:pb-28 px-6 border-b border-neutral-100 bg-gradient-to-b from-neutral-50/50 to-white">
+        <div class="max-w-5xl mx-auto text-center">
+            <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-neutral-100 text-neutral-800 text-xs font-medium mb-6 tracking-wide">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span id="hero-status-tag">接受全球影视剪辑与调色项目预约</span>
+            </div>
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-neutral-900 leading-[1.1] mb-6" id="hero-title">
+                匠心剪辑叙事 <br>极致光影调色
+            </h1>
+            <p class="max-w-2xl mx-auto text-base sm:text-lg text-neutral-500 leading-relaxed mb-10" id="heroBio">剪辑调色师陈丹枫 (Zora)。毕业于浙江横店影视职业学院，擅长以精准的节奏把控与细腻的色彩美学，赋予每部作品独特的生命力。</p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-full bg-neutral-900 text-white font-medium text-sm hover:bg-neutral-800 transition-all shadow-md flex items-center justify-center space-x-2">
+                    <i data-lucide="play-circle" class="w-4 h-4"></i>
+                    <span>浏览作品集</span>
+                </a>
+                <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-full border border-neutral-200 text-neutral-800 font-medium text-sm hover:bg-neutral-50 transition-all flex items-center justify-center space-x-2">
+                    <i data-lucide="mail" class="w-4 h-4"></i>
+                    <span>获取联系方式</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 剪辑调色作品集 -->
+    <section id="portfolio" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div>
+                <span class="text-xs font-semibold text-neutral-400 tracking-widest uppercase block mb-2" id="portfolio-subtitle">EDITING & COLOR GRADING PORTFOLIO</span>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-neutral-900" id="portfolio-title">剪辑调色作品集</h2>
+            </div>
+            
+            <div class="flex flex-wrap gap-2 mt-6 md:mt-0" id="filterTabs">
+                <button onclick="filterPortfolio('all')" class="filter-btn px-5 py-2 rounded-full text-xs font-medium transition-all bg-neutral-900 text-white" data-category="all">全部作品</button>
+                <button onclick="filterPortfolio('家居TVC')" class="filter-btn px-5 py-2 rounded-full text-xs font-medium transition-all bg-neutral-100 text-neutral-600 hover:bg-neutral-200" data-category="家居TVC">家居TVC</button>
+                <button onclick="filterPortfolio('商业广告')" class="filter-btn px-5 py-2 rounded-full text-xs font-medium transition-all bg-neutral-100 text-neutral-600 hover:bg-neutral-200" data-category="商业广告">商业广告</button>
+                <button onclick="filterPortfolio('宣传片')" class="filter-btn px-5 py-2 rounded-full text-xs font-medium transition-all bg-neutral-100 text-neutral-600 hover:bg-neutral-200" data-category="宣传片">宣传片</button>
+                <button onclick="filterPortfolio('创意短视频')" class="filter-btn px-5 py-2 rounded-full text-xs font-medium transition-all bg-neutral-100 text-neutral-600 hover:bg-neutral-200" data-category="创意短视频">创意短视频</button>
+            </div>
+        </div>
+
+        <div id="adminPortfolioControls" class="mb-8 hidden">
+            <button onclick="openPortfolioModal()" class="inline-flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-emerald-600 text-white text-xs font-medium hover:bg-emerald-700 transition-all shadow-sm">
+                <i data-lucide="plus" class="w-4 h-4"></i>
+                <span>添加新作品</span>
+            </button>
+        </div>
+
+        <div id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"></div>
+    </section>
+
+    <!-- 工作经历 -->
+    <section id="work-experience" class="py-24 bg-neutral-50/50 border-t border-b border-neutral-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div>
+                    <span class="text-xs font-semibold text-neutral-400 tracking-widest uppercase block mb-2" id="exp-subtitle">CAREER HISTORY</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-neutral-900" id="exp-title">工作经历</h2>
+                </div>
+                <div id="adminExpControls" class="hidden mt-4 md:mt-0">
+                    <button onclick="openExpModal()" class="inline-flex items-center space-x-2 px-4 py-2 rounded-xl bg-neutral-900 text-white text-xs font-medium hover:bg-neutral-800 transition-all">
+                        <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                        <span>添加工作经历</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="space-y-8" id="experienceList"></div>
+        </div>
+    </section>
+
+    <!-- 个人档案与背景 -->
+    <section id="profile" class="py-24 bg-white border-b border-neutral-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-semibold text-neutral-400 tracking-widest uppercase block mb-2" id="profile-subtitle">PERSONAL PROFILE</span>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-neutral-900" id="profile-title">个人档案与背景</h2>
+            </div>
+
+            <!-- 上半部分：个人照片与基本信息/特长 -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mb-8">
+                
+                <!-- 个人照展示与照片上传通道 -->
+                <div class="bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm flex flex-col items-center text-center relative justify-center">
+                    <div class="relative w-48 h-64 rounded-xl overflow-hidden border border-neutral-200 mb-6 bg-neutral-100 group shadow-inner">
+                        <img id="disp-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="陈丹枫个人照" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/400x533/111315/ffffff?text=Personal+Photo'">
+                        <label for="avatarUploadInput" class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white text-xs font-medium cursor-pointer p-4">
+                            <i data-lucide="upload-cloud" class="w-8 h-8 mb-2"></i>
+                            <span>点击上传新照片</span>
+                        </label>
+                        <input type="file" id="avatarUploadInput" accept="image/*" class="hidden" onchange="handleAvatarUpload(event)">
+                    </div>
+                    <h3 class="font-bold text-xl text-neutral-900 mb-1" id="disp-profile-photo-name">陈丹枫 (Zora)</h3>
+                    <p class="text-xs text-neutral-500 mb-4" id="disp-profile-photo-desc">资深剪辑与调色师</p>
+                    <label for="avatarUploadInput" class="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-neutral-200 text-xs font-medium text-neutral-700 hover:bg-neutral-900 hover:text-white transition-all cursor-pointer">
+                        <i data-lucide="camera" class="w-3.5 h-3.5"></i>
+                        <span>更换个人照</span>
+                    </label>
+                </div>
+
+                <!-- 基本信息卡片 -->
+                <div class="bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm relative group flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="font-bold text-lg text-neutral-900" id="basic-info-title">基本信息</h3>
+                            <div id="adminProfileEditBtnContainer" class="hidden">
+                                <button onclick="openProfileEditModal()" class="p-2 rounded-lg bg-neutral-100 hover:bg-neutral-200 text-neutral-700 transition-colors">
+                                    <i data-lucide="edit-3" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 text-sm" id="profileInfoList">
+                            <li class="flex items-center justify-between pb-3 border-b border-neutral-100 gap-4">
+                                <span class="text-neutral-500 whitespace-nowrap">姓名</span>
+                                <span class="font-medium text-neutral-900 text-right" id="disp-name">陈丹枫 (Zora Chen)</span>
+                            </li>
+                            <li class="flex items-center justify-between pb-3 border-b border-neutral-100 gap-4">
+                                <span class="text-neutral-500 whitespace-nowrap">职位</span>
+                                <span class="font-medium text-neutral-900 text-right" id="disp-position">资深剪辑与调色师 (Senior Editor & Colorist)</span>
+                            </li>
+                            <li class="flex items-center justify-between pb-3 border-b border-neutral-100 gap-4">
+                                <span class="text-neutral-500 whitespace-nowrap">年龄</span>
+                                <span class="font-medium text-neutral-900 text-right" id="disp-age">26 岁</span>
+                            </li>
+                            <li class="flex items-center justify-between pb-3 border-b border-neutral-100 gap-4">
+                                <span class="text-neutral-500 whitespace-nowrap">常驻地</span>
+                                <span class="font-medium text-neutral-900 text-right" id="disp-residence">浙江杭州 / HangZhou, China</span>
+                            </li>
+                            <li class="flex items-center justify-between pb-3 border-b border-neutral-100 gap-4">
+                                <span class="text-neutral-500 whitespace-nowrap">电话</span>
+                                <span class="font-medium text-neutral-900 text-right" id="disp-phone">+86 15158007692</span>
+                            </li>
+                            <li class="flex items-center justify-between gap-4">
+                                <span class="text-neutral-500 whitespace-nowrap">邮箱</span>
+                                <span class="font-medium text-neutral-900 text-right" id="disp-email">1471848687@qq.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 兴趣与专长卡片 -->
+                <div class="bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-lg text-neutral-900 mb-6" id="hobbies-skills-title">兴趣与专长</h3>
+                        <div class="mb-6">
+                            <h4 class="text-xs font-semibold text-neutral-400 tracking-wider uppercase mb-3">个人爱好</h4>
+                            <div class="flex flex-wrap gap-2" id="disp-hobbies">
+                                <span class="px-3 py-1.5 rounded-lg bg-neutral-100 text-neutral-700 text-xs font-medium">徒步、阅读、慢跑、撸猫</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-semibold text-neutral-400 tracking-wider uppercase mb-3">剪辑与调色核心技术栈</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 rounded-lg bg-neutral-900 text-white text-xs font-medium">Premiere Pro / Final Cut Pro</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-neutral-900 text-white text-xs font-medium">DaVinci Resolve Studio</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-neutral-900 text-white text-xs font-medium">After Effects</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-neutral-900 text-white text-xs font-medium">ACES Workflow</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 下半部分：教育背景 -->
+            <div id="education" class="bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm relative transition-all duration-300 hover:border-neutral-300">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-4 border-b border-neutral-100 gap-2">
+                    <div>
+                        <span class="text-xs font-semibold text-neutral-400 tracking-wider uppercase block mb-1" id="edu-year-1">2018 - 2021</span>
+                        <h3 class="text-xl font-bold text-neutral-900" id="edu-school-1">浙江横店影视职业学院</h3>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <span class="px-3 py-1 rounded-full bg-neutral-100 text-neutral-800 text-xs font-medium" id="edu-major-1">影视制作与剪辑调色专业 · 专科</span>
+                        <div id="adminEduEditBtnContainer" class="hidden">
+                            <button onclick="openEducationModal()" class="p-1.5 rounded-lg bg-neutral-100 text-neutral-700 hover:bg-neutral-200 transition-colors">
+                                <i data-lucide="edit-3" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-sm text-neutral-600 leading-relaxed">专业资质: <span id="edu-cert">DaVinci Resolve Certified Advanced Colorist & Premiere Pro Master</span></p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact" class="py-24 px-6 max-w-4xl mx-auto text-center">
+        <span class="text-xs font-semibold text-neutral-400 tracking-widest uppercase block mb-2" id="contact-subtitle">GET IN TOUCH</span>
+        <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-neutral-900 mb-6" id="contact-title">开启您的视觉项目合作</h2>
+        <p class="text-neutral-500 text-sm md:text-base max-w-xl mx-auto mb-10" id="contact-desc">
+            无论是以家居TVC、商业广告、宣传片还是创意短视频为主的剪辑与调色项目，欢迎随时与我联系。
+        </p>
+        
+        <div class="inline-flex flex-col sm:flex-row items-center justify-center gap-4 bg-neutral-50 p-6 rounded-2xl border border-neutral-200 w-full max-w-2xl">
+            <div class="flex items-center space-x-3 px-4 py-2">
+                <i data-lucide="mail" class="w-5 h-5 text-neutral-700"></i>
+                <span class="text-sm font-medium text-neutral-900" id="footer-email">1471848687@qq.com</span>
+            </div>
+            <div class="hidden sm:block w-px h-8 bg-neutral-200"></div>
+            <div class="flex items-center space-x-3 px-4 py-2">
+                <i data-lucide="phone" class="w-5 h-5 text-neutral-700"></i>
+                <span class="text-sm font-medium text-neutral-900" id="footer-phone">+86 15158007692</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-neutral-100 text-center text-xs text-neutral-400">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p id="footer-copyright">© 2026 Chen Danfeng (Zora). All Rights Reserved. Professional Senior Editor & Colorist.</p>
+            <p id="footer-tagline">Designed with Minimalist Precision</p>
+        </div>
+    </footer>
+
+    <!-- 视频播放弹窗 -->
+    <div id="videoModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 sm:p-8">
+        <div class="relative w-full max-w-5xl bg-neutral-950 rounded-2xl overflow-hidden border border-neutral-800 shadow-2xl">
+            <div class="flex items-center justify-between px-6 py-4 border-b border-neutral-800">
+                <h3 id="modalVideoTitle" class="text-white font-medium text-sm sm:text-base">视频播放</h3>
+                <button onclick="closeVideoModal()" class="text-neutral-400 hover:text-white p-1 rounded-lg transition-colors">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div class="relative aspect-video bg-black flex items-center justify-center">
+                <div id="modalVideoContainer" class="w-full h-full flex items-center justify-center"></div>
+            </div>
+            <div class="px-6 py-4 bg-neutral-900 text-xs text-neutral-400 flex items-center justify-between">
+                <span id="modalVideoCategory">Category</span>
+                <span id="modalVideoDesc">Description</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 作品编辑弹窗 -->
+    <div id="portfolioEditModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl w-full max-w-lg p-6 sm:p-8 shadow-2xl border border-neutral-200 max-h-[90vh] overflow-y-auto custom-scrollbar">
+            <div class="flex items-center justify-between mb-6">
+                <h3 id="portfolioModalTitle" class="font-bold text-lg text-neutral-900">添加作品</h3>
+                <button onclick="closePortfolioModal()" class="text-neutral-400 hover:text-neutral-700">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <form id="portfolioForm" onsubmit="savePortfolioItem(event)" class="space-y-4">
+                <input type="hidden" id="editPortfolioId">
+                <div>
+                    <label class="block text-xs font-medium text-neutral-600 mb-1">作品标题</label>
+                    <input type="text" id="pTitle" required class="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-neutral-900">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-neutral-600 mb-1">作品分类</label>
+                    <select id="pCategory" class="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-neutral-900 bg-white">
+                        <option value="家居TVC">家居TVC</option>
+                        <option value="商业广告">商业广告</option>
+                        <option value="宣传片">宣传片</option>
+                        <option value="创意短视频">创意短视频</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-neutral-600 mb-1">封面图片 URL (建议 16:9)</label>
+                    <input type="url" id="pImage" required placeholder="https://images.unsplash.com/..." class="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-neutral-900">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-neutral-600 mb-1">视频播放链接 (MP4 或在线视频链接)</label>
+                    <input type="url" id="pVideoUrl" required placeholder="https://www.w3schools.com/html/mov_bbb.mp4" class="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-neutral-900">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-neutral-600 mb-1">作品描述与剪辑调色说明</label>
+                    <textarea id="pDesc" rows="3" required class="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-neutral-900"></textarea>
+                </div>
+                <div class="flex justify-end space-x-3 pt-4">
+                    <button type="button" onclick="closePortfolioModal()" class="px-5 py-2.5 rounded-xl border border-neutral-200 text-xs font-medium text-neutral-700 hover:bg-neutral-50">取消</button>
+                    <button type="submit" class="px-6 py-2.5 rounded-xl bg-neutral-900 text-white text-xs font-medium hover:bg-neutral-800">保存作品</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 工作经历编辑弹窗 -->
+    <div id="expModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl w-full max-w-lg p-6 sm:p-8 shadow-2xl border border-neutral-200 max-h-[90vh] overflow-y-auto custom-scrollbar">
+            <div class="flex items-center justify-between mb-6">
+                <h3 id="expModalTitle" class="font-bold text-lg text-neutral-900">添加工作经历</h3>
+                <button onclick="closeExpModal()" class="text-neutral-400 hover:text-neutral-700">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <form id="expForm" onsubmit="saveExpItem(event)" class="space-y-4">
+                <input type="hidden" id="editExpId">
+                <div>
+                    <label class="block text-xs font-medium text-neutral-600 mb-1">公司/单位名称</label>
+                    <input type="text" id="expCompany" required class="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-neutral-900">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-neutral-600 mb-1">职位 Title</label>
+                    <input type="text" id="expRole" required class="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-neutral-900">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-neutral-600 mb-1">任职时间 (如: 2021.06-2022.06)</label>
+                    <input type="text" id="expPeriod" required class="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-neutral-900">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-neutral-600 mb-1">工作内容与项目职责描述</label>
+                    <textarea id="expDesc" rows="4" required class="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-neutral-900"></textarea>
+                </div>
+                <div class="flex justify-end space-x-3 pt-4">
+                    <button type="button" onclick="closeExpModal()" class="px-5 py-2.5 rounded-xl border border-neutral-200 text-xs font-medium text-neutral-700 hover:bg-neutral-50">取消</button>
+                    <button type="submit" class="px-6 py-2.5 rounded-xl bg-neutral-900 text-white text-xs font-medium hover:bg-neutral-800">保存经历</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 个人档案编辑弹窗 -->
+    <div id="profileModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl w-full max-w-lg p-6 sm:p-8 shadow-2xl border border-neutral-200 max-h-[90vh] overflow-y-auto custom-scrollbar">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="font-bold text-lg text-neutral-900">编辑个人档案</h3>
+                <button onclick="closeProfileEditModal()" class="text-neutral-400 hover:text-neutral-700">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <form id="profileForm" onsubmit="saveProfileInfo(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-medium text-neutral-600 mb-1">姓名</label>
+                    <input type="text" id="editName" required class="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-neutral-900">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-neutral-600 mb-1">职位 Title</label>
+                    <input type="text" id="editPosition" required class="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-neutral-900">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-neutral-600 mb-1">年龄</label>
+                        <input type="text" id="editAge" required class="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-neutral-900">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-neutral-600 mb-1">常驻地</label>
+                        <input type="text" id="editResidence" required class="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-neutral-900">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-neutral-600 mb-1">电话</label>
+                        <input type="text" id="editPhone" required class="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-neutral-900">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-neutral-600 mb-1">电子邮箱</label>
+                        <input type="email" id="editEmail" required class="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-neutral-900">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-neutral-600 mb-1">个人简介 Bio</label>
+                    <textarea id="editBio" rows="3" required class="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-neutral-900"></textarea>
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-neutral-600 mb-1">个人爱好 (逗号分隔)</label>
+                    <input type="text" id="editHobbies" required class="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-neutral-900">
+                </div>
+                <div class="flex justify-end space-x-3 pt-4">
+                    <button type="button" onclick="closeProfileEditModal()" class="px-5 py-2.5 rounded-xl border border-neutral-200 text-xs font-medium text-neutral-700 hover:bg-neutral-50">取消</button>
+                    <button type="submit" class="px-6 py-2.5 rounded-xl bg-neutral-900 text-white text-xs font-medium hover:bg-neutral-800">保存档案</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 教育背景编辑弹窗 -->
+    <div id="eduModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl w-full max-w-lg p-6 sm:p-8 shadow-2xl border border-neutral-200 max-h-[90vh] overflow-y-auto custom-scrollbar">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="font-bold text-lg text-neutral-900">编辑教育背景</h3>
+                <button onclick="closeEducationModal()" class="text-neutral-400 hover:text-neutral-700">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <form id="eduForm" onsubmit="saveEducationInfo(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-medium text-neutral-600 mb-1">时间范围</label>
+                    <input type="text" id="editEduYear1" required class="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-neutral-900">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-neutral-600 mb-1">学校名称</label>
+                    <input type="text" id="editEduSchool1" required class="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-neutral-900">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-neutral-600 mb-1">专业与学历说明</label>
+                    <input type="text" id="editEduMajor1" required class="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-neutral-900">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-neutral-600 mb-1">专业资质证书</label>
+                    <input type="text" id="editEduCert" required class="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-neutral-900">
+                </div>
+                <div class="flex justify-end space-x-3 pt-4">
+                    <button type="button" onclick="closeEducationModal()" class="px-5 py-2.5 rounded-xl border border-neutral-200 text-xs font-medium text-neutral-700 hover:bg-neutral-50">取消</button>
+                    <button type="submit" class="px-6 py-2.5 rounded-xl bg-neutral-900 text-white text-xs font-medium hover:bg-neutral-800">保存教育背景</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 交互逻辑 JS -->
+    <script>
+        const defaultPortfolio = [
+            {
+                id: 1,
+                title: "FONCTIONAL-快剪视频",
+                category: "家居TVC",
+                image: "https://7692tuotuo-hash.github.io/Zora/截图-FONCTIONAL-快剪视频.png",
+                videoUrl: "https://7692tuotuo-hash.github.io/Zora/FONCTIONAL 快剪-低压缩.mp4",
+                description: "（网页压缩版）FONCTIONAL ｜年份：2024年｜根据品牌传播需求，采用 “信息递进 + 情绪提升” 的剪辑结构。"
+            },
+            {
+                id: 2,
+                title: "模组柜品宣视频",
+                category: "家居TVC",
+                image: "https://7692tuotuo-hash.github.io/Zora-webpage/video/截图-模组柜品宣视频.png",
+                videoUrl: "https://7692tuotuo-hash.github.io/Zora-webpage/video/模组柜品宣视频-低压缩.mp4",
+                description: "（网页压缩版）模组柜品宣视频｜年份：2026年｜通过镜头速度变化与动态层级关系，增强品牌视觉张力。"
+            },
+            {
+                id: 3,
+                title: "Easy Shift 品宣视频",
+                category: "家居TVC",
+                image: "https://7692tuotuo-hash.github.io/Zora-webpage/video/截图-EasyShift品宣视频.png",
+                videoUrl: "https://7692tuotuo-hash.github.io/Zora-webpage/video/EasyShift品宣视频-低压缩.mp4",
+                description: "（网页压缩版）Easy Shift 宣传视频｜年份：2026年｜根据品牌调性进行节奏设计，控制画面呼吸感与视觉停顿。"
+            },
+            {
+                id: 4,
+                title: "Home Office 品宣视频",
+                category: "创意短视频",
+                image: "https://7692tuotuo-hash.github.io/Zora-webpage/video/截图- Home Offine 品宣视频.png",
+                videoUrl: "https://7692tuotuo-hash.github.io/Zora-webpage/video/Home Office 品宣视频-低压缩.mp4",
+                description: "网页压缩版）HULALA HOME 海外家居品牌 | 年份：2025 | 运用温暖细腻的木质色调与克制的剪辑节奏，展现现代高端家居的沉浸式生活质感。"
+            },
+            {
+                id: 5,
+                title: "智能暖宫光疗仪",
+                category: "商业广告",
+                image: "https://7692tuotuo-hash.github.io/Zora-webpage/video/截图-智能暖宫光疗仪.png",
+                videoUrl: "https://7692tuotuo-hash.github.io/Zora-webpage/video/智能暖宫光疗仪-低压缩.mp4",
+                description: "（网页压缩版）智能暖宫光疗仪｜年份：2021年。"
+            },
+            {
+                id: 6,
+                title: "姚芝堂果干广告",
+                category: "商业广告",
+                image: "https://7692tuotuo-hash.github.io/Zora-webpage/video/截图-姚芝堂果干.png",
+                videoUrl: "https://7692tuotuo-hash.github.io/Zora-webpage/video/姚芝堂果干.mp4",
+                description: "（网页压缩版）姚芝堂果干｜年份：2022年。"
+            },
+            {
+                id: 7,
+                title: "哇哈哈果汁饮料",
+                category: "商业广告",
+                image: "https://7692tuotuo-hash.github.io/Zora-webpage/video/截图-哇哈哈果汁.png",
+                videoUrl: "https://7692tuotuo-hash.github.io/Zora-webpage/video/哇哈哈果汁饮料.mp4",
+                description: "（网页压缩版）哇哈哈｜年份：2021年。"
+            },
+            {
+                id: 8,
+                title: "可口可乐",
+                category: "商业广告",
+                image: "https://7692tuotuo-hash.github.io/Zora-webpage/video/截图-可口可乐.png",
+                videoUrl: "https://7692tuotuo-hash.github.io/Zora-webpage/video/可口可乐.mp4",
+                description: "（网页压缩版）可口可乐广告 | 年份：2022。"
+            },
+            {
+                id: 9,
+                title: "国家电网《2022年终汇报片》",
+                category: "宣传片",
+                image: "https://7692tuotuo-hash.github.io/Zora-webpage/video/截图-《义乌年终片》.png",
+                videoUrl: "https://7692tuotuo-hash.github.io/Zora-webpage/video/义乌年终片-低压缩.mp4",
+                description: "（网页压缩版）国家电网《2022年终汇报片》｜年份：2023年。"
+            },
+            {
+                id: 10,
+                title: "国家电网《融合创新 聚力创效》",
+                category: "宣传片",
+                image: "https://7692tuotuo-hash.github.io/Zora-webpage/video/截图-《融合创新 聚力创效》.png",
+                videoUrl: "https://7692tuotuo-hash.github.io/Zora-webpage/video/融合创新 聚力创效-低压缩.mp4",
+                description: "（网页压缩版）国家电网《2022年终汇报片》｜年份：2023年"
+            },
+            {
+                id: 11,
+                title: "FW 26 椅子预热视频",
+                category: "创意短视频",
+                image: "https://7692tuotuo-hash.github.io/Zora-webpage/video/截图-FW26椅子.png",
+                videoUrl: "https://7692tuotuo-hash.github.io/Zora-webpage/video/fw26预热-椅子组合.mp4",
+                description: "网页压缩版）模组柜品宣视频｜年份：2026年｜通过镜头速度变化与动态层级关系，增强品牌视觉张力。"
+            },
+            {
+                id: 12,
+                title: "FW 26 小摆件预热视频",
+                category: "创意短视频",
+                image: "https://7692tuotuo-hash.github.io/Zora-webpage/video/截图-FW26小摆件.png",
+                videoUrl: "https://7692tuotuo-hash.github.io/Zora-webpage/video/fw26预热-小摆件组合.mp4",
+                description: "网页压缩版）模组柜品宣视频｜年份：2026年｜通过镜头速度变化与动态层级关系，增强品牌视觉张力。"
+            }
+        ];
+
+        const defaultExperiences = [
+            {
+                id: 1,
+                company: "杭州艺阳呈品文化有限公司",
+                role: "剪辑师",
+                period: "2021.06 - 2022.06",
+                description: "负责公司商业视频项目的后期全链制作：对接摄影团队完成产品广告素材的交接验收，主导视频剪辑、包装、调色及成品输出全流程；业务覆盖产品商业广告、企业活动记录、人物访谈、品牌宣传片等多类型视频内容。"
+            },
+            {
+                id: 2,
+                company: "杭州吉影文化传播有限公司",
+                role: "剪辑师",
+                period: "2022.06 - 2024.02",
+                description: "负责国家电网相关视频项目的制作执行：承接上级任务指派，完成对应项目的视频剪辑与全流程制作落地；响应客户优化意见并调整内容，统筹成品交付与对接工作。"
+            },
+            {
+                id: 3,
+                company: "杰西亚家居科技股份有限公司",
+                role: "剪辑、调色师",
+                period: "2024.06 - 2026.07",
+                description: "负责跨境家居电商海外营销视频的全链路制作执行：独立承担剪辑、色彩调校、音效设计、特效包装全流程制作，保障内容适配不同渠道的传播规范与内容调性；业务覆盖亚马逊、独立站等跨境电商渠道，及 YouTube、Instagram、TikTok、Pinterest 等海外主流社交平台的宣传视频制作。"
+            }
+        ];
+
+        const defaultProfile = {
+            name: "陈丹枫 (Zora Chen)",
+            position: "剪辑师 (Video Editor)",
+            age: "26 岁",
+            residence: "浙江杭州 / HangZhou, China",
+            phone: "+86 15158007692",
+            email: "1471848687@qq.com",
+            bio: "剪辑师与调色师陈丹枫 (Zora)。毕业于浙江横店影视职业学院，擅长以精准的节奏把控与细腻的色彩美学，赋予每部作品独特的生命力。",
+            hobbies: "徒步、阅读、慢跑、撸猫",
+            avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80"
+        };
+
+        const defaultEducation = {
+            year1: "2018 - 2021",
+            school1: "浙江横店影视职业学院",
+            major1: "影视制作与剪辑调色专业 · 专科",
+            cert: "DaVinci Resolve Certified Advanced Colorist & Premiere Pro Master"
+        };
+
+        let savedPortfolio = JSON.parse(localStorage.getItem('portfolioList'));
+        let portfolioList = (savedPortfolio && savedPortfolio.length > 0) ? savedPortfolio : defaultPortfolio;
+        
+        let savedExp = JSON.parse(localStorage.getItem('experienceList'));
+        let experienceList = (savedExp && savedExp.length > 0) ? savedExp : defaultExperiences;
+        
+        let profileInfo = JSON.parse(localStorage.getItem('profileInfo')) || defaultProfile;
+        let eduInfo = JSON.parse(localStorage.getItem('eduInfo')) || defaultEducation;
+        let isAdminMode = false;
+        let isDirectEditMode = false;
+        let currentFilter = 'all';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPortfolio(portfolioList);
+            renderExperiences(experienceList);
+            renderProfile();
+            renderEducation();
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        });
+
+        function renderPortfolio(items) {
+            const grid = document.getElementById('portfolioGrid');
+            grid.innerHTML = '';
+
+            const filteredItems = currentFilter === 'all' 
+                ? items 
+                : items.filter(item => item.category === currentFilter);
+
+            if (filteredItems.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-2 text-center py-16 bg-neutral-50 rounded-2xl border border-neutral-100">
+                        <p class="text-neutral-400 text-sm">暂无该分类的作品</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filteredItems.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "group bg-white rounded-2xl border border-neutral-200 overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 fade-in flex flex-col justify-between";
+                card.innerHTML = `
+                    <div>
+                        <div class="relative aspect-video overflow-hidden bg-neutral-100 cursor-pointer" onclick="openVideoModal('${item.title}', '${item.videoUrl}', '${item.category}', '${item.description}')">
+                            <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x450/111315/ffffff?text=Video+Placeholder'">
+                            <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <div class="w-14 h-14 rounded-full bg-white/90 text-neutral-900 flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+                                    <i data-lucide="play" class="w-6 h-6 fill-current ml-0.5"></i>
+                                </div>
+                            </div>
+                            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-[10px] font-medium tracking-wide">
+                                ${item.category}
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg text-neutral-900 mb-2 group-hover:text-neutral-600 transition-colors">${item.title}</h3>
+                            <p class="text-neutral-500 text-xs sm:text-sm line-clamp-2 leading-relaxed">${item.description}</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-neutral-100">
+                        <button onclick="openVideoModal('${item.title}', '${item.videoUrl}', '${item.category}', '${item.description}')" class="text-xs font-medium text-neutral-900 hover:underline flex items-center space-x-1">
+                            <span>在线观赏</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </button>
+                        <div class="admin-action-btns ${isAdminMode ? 'flex' : 'hidden'} space-x-2">
+                            <button onclick="editPortfolioItem(${item.id})" class="px-3 py-1.5 rounded-lg bg-neutral-100 text-neutral-700 text-xs font-medium hover:bg-neutral-200 transition-colors">编辑</button>
+                            <button onclick="deletePortfolioItem(${item.id})" class="px-3 py-1.5 rounded-lg bg-red-50 text-red-600 text-xs font-medium hover:bg-red-100 transition-colors">删除</button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+
+        function renderExperiences(expList) {
+            const container = document.getElementById('experienceList');
+            container.innerHTML = '';
+
+            expList.forEach(exp => {
+                const item = document.createElement('div');
+                item.className = "bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm relative transition-all duration-300 hover:border-neutral-300";
+                item.innerHTML = `
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-4 border-b border-neutral-100 gap-2">
+                        <div>
+                            <span class="text-xs font-semibold text-neutral-400 tracking-wider uppercase block mb-1">${exp.period}</span>
+                            <h3 class="text-xl font-bold text-neutral-900">${exp.company}</h3>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="px-3 py-1 rounded-full bg-neutral-100 text-neutral-800 text-xs font-medium">${exp.role}</span>
+                            <div class="admin-exp-action-btns ${isAdminMode ? 'flex' : 'hidden'} space-x-2">
+                                <button onclick="editExpItem(${exp.id})" class="p-1.5 rounded-lg bg-neutral-100 text-neutral-700 hover:bg-neutral-200 transition-colors">
+                                    <i data-lucide="edit-3" class="w-4 h-4"></i>
+                                </button>
+                                <button onclick="deleteExpItem(${exp.id})" class="p-1.5 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 transition-colors">
+                                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-neutral-600 leading-relaxed">${exp.description}</p>
+                `;
+                container.appendChild(item);
+            });
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+
+        function filterPortfolio(category) {
+            currentFilter = category;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.getAttribute('data-category') === category) {
+                    btn.className = "filter-btn px-5 py-2 rounded-full text-xs font-medium transition-all bg-neutral-900 text-white";
+                } else {
+                    btn.className = "filter-btn px-5 py-2 rounded-full text-xs font-medium transition-all bg-neutral-100 text-neutral-600 hover:bg-neutral-200";
+                }
+            });
+            renderPortfolio(portfolioList);
+        }
+
+        function renderProfile() {
+            document.getElementById('disp-name').innerText = profileInfo.name;
+            document.getElementById('disp-position').innerText = profileInfo.position;
+            document.getElementById('disp-age').innerText = profileInfo.age;
+            document.getElementById('disp-residence').innerText = profileInfo.residence;
+            document.getElementById('disp-phone').innerText = profileInfo.phone;
+            document.getElementById('disp-email').innerText = profileInfo.email;
+            document.getElementById('heroBio').innerText = profileInfo.bio;
+            document.getElementById('footer-email').innerText = profileInfo.email;
+            document.getElementById('footer-phone').innerText = profileInfo.phone;
+            document.getElementById('disp-profile-photo-name').innerText = profileInfo.name;
+
+            if (profileInfo.avatar) {
+                document.getElementById('disp-avatar').src = profileInfo.avatar;
+            }
+
+            const hobbiesContainer = document.getElementById('disp-hobbies');
+            hobbiesContainer.innerHTML = '';
+            profileInfo.hobbies.split(',').forEach(hobby => {
+                const span = document.createElement('span');
+                span.className = "px-3 py-1.5 rounded-lg bg-neutral-100 text-neutral-700 text-xs font-medium";
+                span.innerText = hobby.trim();
+                hobbiesContainer.appendChild(span);
+            });
+        }
+
+        function handleAvatarUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const avatarDataUrl = e.target.result;
+                    document.getElementById('disp-avatar').src = avatarDataUrl;
+                    profileInfo.avatar = avatarDataUrl;
+                    localStorage.setItem('profileInfo', JSON.stringify(profileInfo));
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function renderEducation() {
+            document.getElementById('edu-year-1').innerText = eduInfo.year1 || "2018 - 2021";
+            document.getElementById('edu-school-1').innerText = eduInfo.school1;
+            document.getElementById('edu-major-1').innerText = eduInfo.major1;
+            document.getElementById('edu-cert').innerText = eduInfo.cert || "DaVinci Resolve Certified Advanced Colorist & Premiere Pro Master";
+        }
+
+        function toggleAdminMode() {
+            isAdminMode = !isAdminMode;
+            const btnText = document.getElementById('adminToggleText');
+            const adminControls = document.getElementById('adminPortfolioControls');
+            const adminExpControls = document.getElementById('adminExpControls');
+            const profileEditBtn = document.getElementById('adminProfileEditBtnContainer');
+            const eduEditBtn = document.getElementById('adminEduEditBtnContainer');
+
+            if (isAdminMode) {
+                btnText.innerText = "退出管理";
+                adminControls.classList.remove('hidden');
+                adminExpControls.classList.remove('hidden');
+                profileEditBtn.classList.remove('hidden');
+                eduEditBtn.classList.remove('hidden');
+            } else {
+                btnText.innerText = "管理后台";
+                adminControls.classList.add('hidden');
+                adminExpControls.classList.add('hidden');
+                profileEditBtn.classList.add('hidden');
+                eduEditBtn.classList.add('hidden');
+            }
+            renderPortfolio(portfolioList);
+            renderExperiences(experienceList);
+        }
+
+        function toggleEditMode() {
+            isDirectEditMode = !isDirectEditMode;
+            const btnText = document.getElementById('editToggleText');
+            const editBtn = document.getElementById('editToggleBtn');
+
+            const textSelectors = 'h1, h2, h3, h4, p, span, a, label, li';
+            const allTextElements = document.querySelectorAll(textSelectors);
+
+            if (isDirectEditMode) {
+                btnText.innerText = "保存页面修改";
+                editBtn.classList.add('bg-blue-600', 'text-white', 'border-blue-600');
+
+                allTextElements.forEach(el => {
+                    if (!el.closest('#videoModal') && !el.closest('#portfolioEditModal') && !el.closest('#expModal') && !el.closest('#profileModal') && !el.closest('#eduModal') && !el.closest('button')) {
+                        el.contentEditable = "true";
+                        el.classList.add('editable-highlight');
+                    }
+                });
+            } else {
+                btnText.innerText = "开启实时编辑修改";
+                editBtn.classList.remove('bg-blue-600', 'text-white', 'border-blue-600');
+
+                allTextElements.forEach(el => {
+                    el.contentEditable = "false";
+                    el.classList.remove('editable-highlight');
+                });
+            }
+        }
+
+        function openVideoModal(title, url, category, desc) {
+            document.getElementById('modalVideoTitle').innerText = title;
+            document.getElementById('modalVideoCategory').innerText = "分类: " + category;
+            document.getElementById('modalVideoDesc').innerText = desc;
+            
+            const container = document.getElementById('modalVideoContainer');
+            container.innerHTML = `
+                <video controls autoplay class="w-full h-full object-contain">
+                    <source src="${url}" type="video/mp4">
+                    您的浏览器不支持视频播放。
+                </video>
+            `;
+            document.getElementById('videoModal').classList.remove('hidden');
+            document.getElementById('videoModal').classList.add('flex');
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.getElementById('modalVideoContainer').innerHTML = '';
+        }
+
+        function openPortfolioModal(id = null) {
+            const modal = document.getElementById('portfolioEditModal');
+            const form = document.getElementById('portfolioForm');
+            form.reset();
+            document.getElementById('editPortfolioId').value = '';
+
+            if (id) {
+                document.getElementById('portfolioModalTitle').innerText = '编辑作品';
+                const item = portfolioList.find(p => p.id === id);
+                if (item) {
+                    document.getElementById('editPortfolioId').value = item.id;
+                    document.getElementById('pTitle').value = item.title;
+                    document.getElementById('pCategory').value = item.category;
+                    document.getElementById('pImage').value = item.image;
+                    document.getElementById('pVideoUrl').value = item.videoUrl;
+                    document.getElementById('pDesc').value = item.description;
+                }
+            } else {
+                document.getElementById('portfolioModalTitle').innerText = '添加新作品';
+            }
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closePortfolioModal() {
+            document.getElementById('portfolioEditModal').classList.add('hidden');
+            document.getElementById('portfolioEditModal').classList.remove('flex');
+        }
+
+        function savePortfolioItem(event) {
+            event.preventDefault();
+            const id = document.getElementById('editPortfolioId').value;
+            const newItem = {
+                id: id ? parseInt(id) : Date.now(),
+                title: document.getElementById('pTitle').value,
+                category: document.getElementById('pCategory').value,
+                image: document.getElementById('pImage').value,
+                videoUrl: document.getElementById('pVideoUrl').value,
+                description: document.getElementById('pDesc').value
+            };
+
+            if (id) {
+                const index = portfolioList.findIndex(p => p.id === parseInt(id));
+                if (index !== -1) portfolioList[index] = newItem;
+            } else {
+                portfolioList.unshift(newItem);
+            }
+
+            localStorage.setItem('portfolioList', JSON.stringify(portfolioList));
+            renderPortfolio(portfolioList);
+            closePortfolioModal();
+        }
+
+        function editPortfolioItem(id) {
+            openPortfolioModal(id);
+        }
+
+        function deletePortfolioItem(id) {
+            if (confirm("确定要删除该作品吗？")) {
+                portfolioList = portfolioList.filter(p => p.id !== id);
+                localStorage.setItem('portfolioList', JSON.stringify(portfolioList));
+                renderPortfolio(portfolioList);
+            }
+        }
+
+        function openExpModal(id = null) {
+            const modal = document.getElementById('expModal');
+            const form = document.getElementById('expForm');
+            form.reset();
+            document.getElementById('editExpId').value = '';
+
+            if (id) {
+                document.getElementById('expModalTitle').innerText = '编辑工作经历';
+                const item = experienceList.find(e => e.id === id);
+                if (item) {
+                    document.getElementById('editExpId').value = item.id;
+                    document.getElementById('expCompany').value = item.company;
+                    document.getElementById('expRole').value = item.role;
+                    document.getElementById('expPeriod').value = item.period;
+                    document.getElementById('expDesc').value = item.description;
+                }
+            } else {
+                document.getElementById('expModalTitle').innerText = '添加工作经历';
+            }
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeExpModal() {
+            document.getElementById('expModal').classList.add('hidden');
+            document.getElementById('expModal').classList.remove('flex');
+        }
+
+        function saveExpItem(event) {
+            event.preventDefault();
+            const id = document.getElementById('editExpId').value;
+            const newItem = {
+                id: id ? parseInt(id) : Date.now(),
+                company: document.getElementById('expCompany').value,
+                role: document.getElementById('expRole').value,
+                period: document.getElementById('expPeriod').value,
+                description: document.getElementById('expDesc').value
+            };
+
+            if (id) {
+                const index = experienceList.findIndex(e => e.id === parseInt(id));
+                if (index !== -1) experienceList[index] = newItem;
+            } else {
+                experienceList.unshift(newItem);
+            }
+
+            localStorage.setItem('experienceList', JSON.stringify(experienceList));
+            renderExperiences(experienceList);
+            closeExpModal();
+        }
+
+        function editExpItem(id) {
+            openExpModal(id);
+        }
+
+        function deleteExpItem(id) {
+            if (confirm("确定要删除此条工作经历吗？")) {
+                experienceList = experienceList.filter(e => e.id !== id);
+                localStorage.setItem('experienceList', JSON.stringify(experienceList));
+                renderExperiences(experienceList);
+            }
+        }
+
+        function openProfileEditModal() {
+            document.getElementById('editName').value = profileInfo.name;
+            document.getElementById('editPosition').value = profileInfo.position;
+            document.getElementById('editAge').value = profileInfo.age;
+            document.getElementById('editResidence').value = profileInfo.residence;
+            document.getElementById('editPhone').value = profileInfo.phone;
+            document.getElementById('editEmail').value = profileInfo.email;
+            document.getElementById('editBio').value = profileInfo.bio;
+            document.getElementById('editHobbies').value = profileInfo.hobbies;
+
+            const modal = document.getElementById('profileModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeProfileEditModal() {
+            document.getElementById('profileModal').classList.add('hidden');
+            document.getElementById('profileModal').classList.remove('flex');
+        }
+
+        function saveProfileInfo(event) {
+            event.preventDefault();
+            profileInfo = {
+                name: document.getElementById('editName').value,
+                position: document.getElementById('editPosition').value,
+                age: document.getElementById('editAge').value,
+                residence: document.getElementById('editResidence').value,
+                phone: document.getElementById('editPhone').value,
+                email: document.getElementById('editEmail').value,
+                bio: document.getElementById('editBio').value,
+                hobbies: document.getElementById('editHobbies').value,
+                avatar: profileInfo.avatar
+            };
+            localStorage.setItem('profileInfo', JSON.stringify(profileInfo));
+            renderProfile();
+            closeProfileEditModal();
+        }
+
+        function openEducationModal() {
+            document.getElementById('editEduYear1').value = eduInfo.year1 || "2018 - 2021";
+            document.getElementById('editEduSchool1').value = eduInfo.school1;
+            document.getElementById('editEduMajor1').value = eduInfo.major1;
+            document.getElementById('editEduCert').value = eduInfo.cert || "DaVinci Resolve Certified Advanced Colorist & Premiere Pro Master";
+
+            const modal = document.getElementById('eduModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeEducationModal() {
+            document.getElementById('eduModal').classList.add('hidden');
+            document.getElementById('eduModal').classList.remove('flex');
+        }
+
+        function saveEducationInfo(event) {
+            event.preventDefault();
+            eduInfo = {
+                year1: document.getElementById('editEduYear1').value,
+                school1: document.getElementById('editEduSchool1').value,
+                major1: document.getElementById('editEduMajor1').value,
+                cert: document.getElementById('editEduCert').value
+            };
+            localStorage.setItem('eduInfo', JSON.stringify(eduInfo));
+            renderEducation();
+            closeEducationModal();
+        }
+    </script>
+</body>
+</html>
